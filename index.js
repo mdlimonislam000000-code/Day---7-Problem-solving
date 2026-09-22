@@ -18,3 +18,21 @@ debouncedSearch('apple');
 
 // Problem - 32 
 
+
+// const throttle = (fn, limit) => {
+//     let lastCall = 0;
+//     return (...args) => {
+//         const now = Date.now();
+//         if (now - lastCall >= limit) {
+//             lastCall = now;
+//             fn(...args);
+//         }
+//     };
+// };
+
+// const throttledScroll = throttle(() => console.log('Scrolled! at', Date.now()), 1);
+
+// setInterval(() => {
+//     throttledScroll();
+// }, 50);
+
