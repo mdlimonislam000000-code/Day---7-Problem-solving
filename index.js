@@ -87,3 +87,16 @@ const emitter = new EventEmitter();
 const greetHandler = name => console.log('Problem - 34 :','Hello ' + name);
 emitter.on('greet', greetHandler);
 emitter.emit('greet', 'Sara');
+
+
+// Problem 35 
+
+const myMap = (arr, callback) => {
+    const result = [];
+    for (let i = 0; i < arr.length; i++) {
+        result.push(callback(arr[i], i, arr));
+    }
+    return result;
+};
+
+console.log('Problem - 35 : ',myMap([1, 2, 3], x => x * 2));
