@@ -56,3 +56,34 @@ const a = { x: { y: 1 } };
 const b = deepClone(a);
 b.x.y = 99;
 console.log('Problem - 33',a.x.y);
+
+// Problem 34 
+
+class EventEmitter {
+    constructor() {
+        this.events = {};
+    }
+    on(event, listener) {
+        if (!this.events[event]) {
+            this.events[event] = [];
+        }
+        this.events[event].push(listener);
+    }
+    emit(event, ...args) {
+        if (this.events[event]) {
+            this.events[event].forEach(listener => listener(...args));
+        }
+    }
+    off(event, listenerToRemove) {
+        if (this.events[event]) {
+            this.events[event] = this.events[event].filter(
+                listener => listener !== listenerToRemove
+            );
+        }
+    }
+}
+
+const emitter = new EventEmitter();
+const greetHandler = name => console.log('Problem - 34 :','Hello ' + name);
+emitter.on('greet', greetHandler);
+emitter.emit('greet', 'Sara');
