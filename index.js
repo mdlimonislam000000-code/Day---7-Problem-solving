@@ -30,9 +30,29 @@ debouncedSearch('apple');
 //     };
 // };
 
-// const throttledScroll = throttle(() => console.log('Scrolled! at', Date.now()), 1);
+// const throttledScroll = throttle(() => console.log('Problem - 32 :,'Scrolled! at', Date.now()), 1);
 
 // setInterval(() => {
 //     throttledScroll();
 // }, 50);
 
+
+
+// Problem 33
+const deepClone = (obj) => {
+    if (obj === null || typeof obj !== 'object') return obj;
+    const clone = Array.isArray(obj) ? [] : {};
+    
+    for (let key in obj) {
+        if (Object.hasOwn(obj, key)) {
+            clone[key] = deepClone(obj[key]); 
+        }
+    }
+    return clone;
+};
+
+// ব্যবহার:
+const a = { x: { y: 1 } };
+const b = deepClone(a);
+b.x.y = 99;
+console.log('Problem - 33',a.x.y);
